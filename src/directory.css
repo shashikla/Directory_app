@@ -100,3 +100,19 @@
 .resume-btn, .select-country, .btn-back{
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .link{
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+    .content2{
+        width: 100%;
+    }
+   
+}

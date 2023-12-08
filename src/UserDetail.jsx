@@ -119,11 +119,11 @@ function UserDetail() {
       </div>
       <h2 style={{textAlign:"center"}}>Profile Page</h2>
       <div className='row'>
-        <div >
+        <div className='content2'>
         <p>{user?.name}</p>
         <p>{user?.username} | {user?.company.catchPhrase}</p>
         </div>
-        <div >
+        <div className='content2'>
         <p>Address: {user?.address.street},{user?.address.city}-{user?.address.zipcode}</p>
         <p>{user?.email} | {user?.phone}</p>
         </div>
