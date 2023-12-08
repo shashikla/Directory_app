@@ -62,8 +62,41 @@
 }
 .btn-back{
     background-color: rgb(148, 184, 197);
-    border: 1px solid ;
-    padding: 5px 10px;
+    border: 2px solid;
+    padding: 6px 10px;
     border-radius: 5px;
-    font-weight:500;
+    font-weight: 500;
+    width: 60px;
+}
+.select-country{
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid;
+    width: 200px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+.clock_div{
+    border: 1px solid rgb(148, 184, 197);
+    padding: 5px;
+    border-radius: 5px;
+    background: rgb(148, 184, 197);
+    width: 90px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+}
+.resume-btn{
+    background-color: lightgreen;
+    border: 1px solid lightgreen;
+    border-radius: 5px;
+}
+
+.resume-btn, .select-country, .btn-back{
+    cursor: pointer;
 }
