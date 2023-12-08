@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Link, Route, Switch, Routes } from 'react-router-dom';
+import UserList from './UserList';
+import UserDetail from './UserDetail';
 
 function App() {
+  const [users, setUsers] = useState([]);
+  const [userPosts, setUserPosts] = useState({});
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => setUsers(data))
+      .catch(error => console.error('Error fetching users:', error));
+  }, []);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(data => {
+        setUserPosts(data);
+      })
+      .catch(error => console.error('Error fetching posts:', error));
+  }, []);
+
+  const getUserPostsCount = (userId) => {
+    return userPosts.filter(post => post.userId === userId).length;
+  };
+
+  console.log(getUserPostsCount);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div>
+      <Routes>
+        <Route path="/" element={<UserList users={users} post={userPosts} getUserPostsCount={getUserPostsCount} />} />
+        <Route path="/users/:id" element={<UserDetail />} />
+      </Routes>
     </div>
+  </Router>
   );
 }
 
